@@ -2,11 +2,12 @@
 
 ### Color Glyphs
 
-I have 3 sketches to begin this project, with each one interpreting the colour in a different way, the second sketch is seen below. 
+I have 3 sketches to begin this project, with each one interpreting the colour in a different way, the third sketch is seen below. 
 
-This second sketch takes the Hue value and maps it to a frequency value, with the warmer colours having a higher frequency and the cooler colours having a lower frequency.
+The third sketch takes the Hue value and uses it as an angle, similar to the first sketch, this angle determines the path of the line as shown in the sketch.
 
-The saturation value determines the height of the waves, so colours with no saturation will appear as a flat line.
+The saturation value determines the radius in which the arc starts to turn around the sphere, with colours of no saturation being lines with no circle in them.
 
-The lightness will look at changing the opacity of the wave, or something along those lines to convey that change through the glyph. 
+The lightness will look at changing the opacity of the line, or something along those lines to convey that change through the glyph.
+
 
