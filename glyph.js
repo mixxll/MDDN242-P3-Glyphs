@@ -7,20 +7,20 @@ var backgroundColor = "hsb(0, 0%, 94%)";
 
 function Glyph() {
   /*
-   * values is an array of 3 numbers: [hue, saturation, brightness]
+   * values is an array of 3 numbers: [hue, saturation, lightness]
    *   + hue ranges from 0..360
    *   + saturation ranges from 0..100
-   *   + brightness ranges from 0..100
+   *   + lightness ranges from 0..100
    *
    * size is the number of pixels for width and height
    *
    * use p5.js to draw a round grayscale glyph
    * the glyph should stay within the ellipse [0, 0, width, height]
-   * this is a grayscale glyph, so only brighness can be adjusted.
-   * the range for brighness is 0..100
+   * this is a grayscale glyph, so only lightness can be adjusted.
+   * the range for lightness is 0..100
    *
-   * When setting brightness of stroke or fill always use either strokeUniform()
-   * or fillUniform() calls. Each takes one arguement - the brightness from
+   * When setting the lightness of stroke or fill always use either strokeUniform()
+   * or fillUniform() calls. Each takes one arguement - the lightness from
    * 0 to 100. Examples:
    *       - fillUniform(50);    // ranges from 0-100
    *       - strokeUniform(100); // white
@@ -28,7 +28,7 @@ function Glyph() {
   this.draw = function(values, size) {
     // replace this with your own version
 
-    // map brightness to large circle shade
+    // map lightness to large circle shade
     let color1 = map(values[2], 0, 100, 10, 70)
     strokeUniform(color1);
     fillUniform(color1)
