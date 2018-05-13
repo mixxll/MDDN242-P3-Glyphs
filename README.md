@@ -2,12 +2,11 @@
 
 ### Color Glyphs
 
-I have 3 sketches to begin this project, with each one interpreting the colour in a different way, the third sketch is seen below. 
+Concept One - Code
 
-The third sketch takes the Hue value and uses it as an angle, similar to the first sketch, this angle determines the path of the line as shown in the sketch.
+I have coded the first of my concepts, that being the radial design. The glyph functions as expected, however upon the transition of going from a hue of 360 back to 0, the glyph jumps back to a dot, with no smooth transition between the two. This will hopefully be changed in further updates.
 
-The saturation value determines the radius in which the arc starts to turn around the sphere, with colours of no saturation being lines with no circle in them.
+The glyph functions very well in both the gradient and outlier modes, with the gradient showing a clear flow and the outlier being easily detectable.
 
-The lightness will look at changing the opacity of the line, or something along those lines to convey that change through the glyph.
 
 

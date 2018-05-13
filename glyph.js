@@ -1,5 +1,5 @@
 /* change default application behavior */
-var defaultMode = "sketch";
+var defaultMode = "edit";
 var defaultSize = 128;
 var defaultDisplay = "both"
 var defaultEmoji = 100;
@@ -26,28 +26,30 @@ function Glyph() {
    *       - strokeUniform(100); // white
    */ 
   this.draw = function(values, size) {
-    // replace this with your own version
 
-    // map lightness to large circle shade
-    let color1 = map(values[2], 0, 100, 10, 70)
-    strokeUniform(color1);
-    fillUniform(color1)
-    let s2 = size/2;
-    ellipse(s2, s2, size);
+    angleMode(DEGREES);
+    noFill();
 
-    // inner size is set to 30%
-    let inner_size = 0.2 + 0.4 * 0.3;
-    let s3 = size * inner_size;
+    let hueValue = values[0];
+    let satValue = values[1];
+    let ligValue = values[2];
 
-    // inner color based on saturation
-    let color2 = map(values[1], 0, 100, color1+20, 240)
-    fillUniform(color2);
-    strokeUniform(color2);
+    let strokeW = map(satValue,0,100,size/20,size/6);
+    let glyphRadius = map(ligValue,0,100,1, size-strokeW);
 
-    // hue controls left/right shift
-    let shift_frac = (values[0] - 180.0) / 180.0;
-    let max_shift = 0.5 * (size - s3);
-    let x_shift = shift_frac * max_shift;
-    ellipse(s2 + x_shift, s2, s3);  
-  }  
+    translate(size/3,size/3);
+    rotate(-90);
+
+    push();
+    //ellipse(0,0,size,size);
+
+    strokeWeight(strokeW);
+    //ellipse(0, 0, this.radius, this.radius);
+    arc(0,0,glyphRadius,glyphRadius,0,hueValue);
+    //console.log(this.hueValue);
+    strokeWeight(strokeW/4);
+    //arc(0,0,glyphRadius,glyphRadius,0,hueValue);
+    pop();
+
+  } 
 }
