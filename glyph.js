@@ -1,9 +1,9 @@
 /* change default application behavior */
-var defaultMode = "edit";
-var defaultSize = 128;
-var defaultDisplay = "both"
+var defaultMode = "random";
+var defaultSize = 64;
+var defaultDisplay = "glyph"
 var defaultEmoji = 100;
-var backgroundColor = "hsb(0, 0%, 94%)";
+var backgroundColor = "hsb(0, 0%, 100%)";
 
 function Glyph() {
   /*
@@ -26,38 +26,64 @@ function Glyph() {
    *       - strokeUniform(100); // white
    */ 
   this.draw = function(values, size) {
-
-    angleMode(DEGREES);
-    noFill();
-
     let hueValue = values[0];
     let satValue = values[1];
     let ligValue = values[2];
+    let pointNum = 2*(round(map(satValue,0,100,1,13)));
+    //console.log(this.satValue);
+    let strokeW = map(ligValue,0,100,size/100,size/15);
+    let tightness = map(ligValue,0,100,-2,0.8);
 
-    let strokeW = map(satValue,0,100,size/20,size/6);
-    let glyphRadius = map(ligValue,0,100,1, size-strokeW);
+    var bounding = new WaveBoundingSphere(hueValue,size);
 
     translate(size/2,size/2);
-    rotate(-90);
 
-    push();
+    noFill();
+
+    strokeWeight(1);
+    stroke(0);
+    console.log(10);
     //ellipse(0,0,size,size);
 
+    stroke(0);
+    curveTightness(tightness);
+    curveTightness(0.1);
     strokeWeight(strokeW);
-    //ellipse(0, 0, this.radius, this.radius);
-    arc(0,0,glyphRadius,glyphRadius,0,hueValue);
-    push();
-    rotate(90);
-    line(0,0-glyphRadius/2,0,-(size/2) + strokeW/2);
-    push();
-    rotate(hueValue);
-    line(0,0-glyphRadius/2,0,-(size/2) + strokeW/2);
-    pop();
-    pop();
-    //console.log(this.hueValue);
-    strokeWeight(strokeW/4);
-    //arc(0,0,glyphRadius,glyphRadius,0,hueValue);
-    pop();
 
-  } 
+    var pointX = -size/2;
+    var pos = -1;
+    beginShape();
+    curveVertex(-size/2,0);
+    for (var i = 1; i <= pointNum; i++) {
+      if(i % 2 == 0){
+        var pointY = bounding.returnY(pointX,pos,strokeW);
+        pos = pos * -1;
+      } else {
+        var pointY = 0;
+      }
+      curveVertex(pointX, pointY);
+      pointX += size/pointNum;
+    }
+    curveVertex(size/2,0);
+    curveVertex(size/2,0);
+    endShape();
+  }
+
+function WaveBoundingSphere(h,size) {
+  this.height = map(h,0,360,-size,size);
+
+  this.returnY = function(x,pos,strokeW) {
+    var a = size/2;
+    var b = this.height/2;
+    var xPos = x;
+    var yP = b*sqrt(1-((x*x)/(a*a)));
+    return((yP)*pos);
+  
+    //return((yP - strokeW)*pos);
+  }
+
+  this.returnMax = function(pos) {
+    return(this.height/2*pos);
+  }
+}
 }

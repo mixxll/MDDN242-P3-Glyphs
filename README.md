@@ -2,13 +2,12 @@
 
 ### Color Glyphs
 
-Concept Three - Radial with Angle Lines
+Developed Sketch Two
 
-The last of my concepts can be seen above, this concept was relatively easy to code, as it is just a slight variation on my first design, the hardest part was getting the lines to be tangential to the arc, but once that was solved the code was more or less finished.
+I have fleshed out my code for this design, with the wave now using a simplar code that also allows it to be a single line rather than the two lines that were mirrored beforehand.
 
-The added addition of the tangential lines adds to the flow when in gradient mode, making each glyph appear like a clock face which I quite like.
+Upon looking at the code in random and gradient mode, it is clear that the mapping of values isnt as accurate as I had intiially percieved them to be, with a cyan colour appearing as a flat line, when initally black was meant to display like that.
 
-Once again, similar to the first concept the glyph jumps when transitioning back to 0 from 360, this will need to be looked into.
-
+This should be a relativley easy fix, just a matter of switching the different inputs for each map and altering the limits slightly.
 
 
