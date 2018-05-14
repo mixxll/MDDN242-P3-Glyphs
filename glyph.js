@@ -34,7 +34,7 @@ function Glyph() {
     let pointNum = 2*(round(map(satValue,0,100,1,13)));
     //console.log(this.satValue);
     let strokeFill = map(ligValue,0,100,0,90);
-    let circFill = map(ligValue,0,100,98,50);
+    let circFill = map(ligValue,0,100,40,95);
     let tightness = map(ligValue,0,100,-2,0.8);
 
     let strokeW = size/30;
@@ -47,9 +47,9 @@ function Glyph() {
 
     push();
 
-    //noStroke();
+    noStroke();
     strokeWeight(1);
-    strokeUniform(strokeFill);
+    //strokeUniform(strokeFill);
     fillUniform(circFill);
 
     ellipse(0,0,size,size);
@@ -59,7 +59,7 @@ function Glyph() {
     curveTightness(0.1);
 
     strokeWeight(strokeW);
-    strokeUniform(strokeFill);
+    strokeUniform(100);
 
     var pointX = -size/2;
     var pos = -1;
