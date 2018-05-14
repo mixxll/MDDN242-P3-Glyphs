@@ -4,8 +4,6 @@
 
 Further Development - Concept Two
 
-I am now exploring different aesthetics for the glyphs, I have added a circle which outstroke matches that off the waves stroke fill, this helps frame each glyph whilst still allowing the flow from wave to wave I want to come across.
+- Refined glyph to more or less a final state, fixed few minor details, such as moving start and points for the wave out a bit so glyph wave is cleaner/smoother.
 
-I have also added an outer circle, which is completely white to trim away any of the wave that sticks out. So each glyph now stays within the guide perfectly.
-
-- Explored making wave stroke purely white, only background now changes
+- Added a outline of sorts to background circle, by increasing fill lightness by 5 and drawing a smaller circle in the exsisting one.

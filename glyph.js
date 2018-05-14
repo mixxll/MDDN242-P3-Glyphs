@@ -1,5 +1,5 @@
 /* change default application behavior */
-var defaultMode = "image";
+var defaultMode = "edit";
 var defaultSize = 32;
 var defaultDisplay = "glyph"
 var defaultEmoji = 100;
@@ -34,7 +34,7 @@ function Glyph() {
     let pointNum = 2*(round(map(satValue,0,100,1,13)));
     //console.log(this.satValue);
     let strokeFill = map(ligValue,0,100,0,90);
-    let circFill = map(ligValue,0,100,40,95);
+    let circFill = map(ligValue,0,100,40,90);
     let tightness = map(ligValue,0,100,-2,0.8);
 
     let strokeW = size/30;
@@ -52,7 +52,17 @@ function Glyph() {
     //strokeUniform(strokeFill);
     fillUniform(circFill);
 
-    ellipse(0,0,size,size);
+    let circDiff = 3; 
+
+    if(size <= 32){
+      ellipse(0,0,size*0.9,size*0.9);
+      fillUniform(circFill+circDiff);
+      ellipse(0,0,size*0.8,size*0.8);
+    } else {
+      ellipse(0,0,size,size);
+      fillUniform(circFill+circDiff);
+      ellipse(0,0,size*0.9,size*0.9);
+    }
 
     noFill();
 
@@ -64,7 +74,8 @@ function Glyph() {
     var pointX = -size/2;
     var pos = -1;
     beginShape();
-    curveVertex(-size/2,0);
+    curveVertex(-size/2-size/60,0);
+    curveVertex(-size/2-size/50,0);
     for (var i = 1; i <= pointNum; i++) {
       if(i % 2 == 0){
         var pointY = bounding.returnY(pointX,pos,strokeW);
@@ -75,8 +86,8 @@ function Glyph() {
       curveVertex(pointX, pointY);
       pointX += size/pointNum;
     }
-    curveVertex(size/2,0);
-    curveVertex(size/2,0);
+    curveVertex(size/2+size/50,0);
+    curveVertex(size/2+size/50,0);
     endShape();
 
     var outerStroke = size/30;
@@ -85,7 +96,9 @@ function Glyph() {
     strokeUniform(100);
     noFill();
 
-    ellipse(0,0,size+outerStroke,size+outerStroke);
+    if(size > 32){
+      ellipse(0,0,size+outerStroke,size+outerStroke);
+    }
 
     pop();
   }
