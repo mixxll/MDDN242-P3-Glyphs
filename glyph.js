@@ -27,86 +27,37 @@ function Glyph() {
    */ 
   this.draw = function(values, size) {
 
+    angleMode(DEGREES);
+    noFill();
+
     let hueValue = values[0];
     let satValue = values[1];
     let ligValue = values[2];
 
-    let pointNum = map(satValue,0,100,1,18);
-    let strokeW = map(ligValue,0,100,size/100,size/20);
-
-    var bounding = new WaveBoundingSphere(hueValue, size);
+    let strokeW = map(satValue,0,100,size/20,size/6);
+    let glyphRadius = map(ligValue,0,100,1, size-strokeW);
 
     translate(size/2,size/2);
-    //rotate(-90);
+    rotate(-90);
 
     push();
+    //ellipse(0,0,size,size);
 
-    noFill();
-    stroke(0);
     strokeWeight(strokeW);
-    //noStroke();
-
-    var pointX = -size/2;
-    var pos = -1;
-    beginShape();
-    curveVertex(-size/2,0);
-    for (var i = 1; i <= pointNum; i++) {
-      if(i % 2 == 0){
-        var pointY = bounding.returnY(pointX,pos);
-        pos = pos * -1;
-      } else {
-        var pointY = 0;
-      }
-      curveVertex(pointX, pointY);
-      // push();
-      // strokeWeight(1);
-      // stroke(0);
-      // ellipse(pointX,pointY,5,5);
-      // pop();
-      pointX += size/2/pointNum;
-    }
-    curveVertex(0,bounding.returnY(0)*pos);
-    endShape();
-
-    var pointX = size/2;
-    var pos = -1;
-    beginShape();
-    curveVertex(size/2,0);
-    for (var i = 1; i <= pointNum; i++) {
-      if(i % 2 == 0){
-        var pointY = bounding.returnY(pointX,pos);
-        pos = pos * -1;
-      } else {
-        var pointY = 0;
-      }
-      curveVertex(pointX, pointY);
-      // push();
-      // strokeWeight(1);
-      // stroke(0);
-      // ellipse(pointX,pointY,5,5);
-      // pop();
-      pointX -= size/2/pointNum;
-    }
-    curveVertex(0,bounding.returnY(0)*pos);
-    endShape();
-
+    //ellipse(0, 0, this.radius, this.radius);
+    arc(0,0,glyphRadius,glyphRadius,0,hueValue);
+    push();
+    rotate(90);
+    line(0,0-glyphRadius/2,0,-(size/2) + strokeW/2);
+    push();
+    rotate(hueValue);
+    line(0,0-glyphRadius/2,0,-(size/2) + strokeW/2);
+    pop();
+    pop();
+    //console.log(this.hueValue);
+    strokeWeight(strokeW/4);
+    //arc(0,0,glyphRadius,glyphRadius,0,hueValue);
     pop();
 
-  }
-
-  function WaveBoundingSphere(h,size) {
-    this.size = size;
-    this.height = map(h,0,360,0,size);
-
-    this.returnY = function(x,pos) {
-      var a = this.size/2;
-      var b = this.height/2;
-      var yP = b*sqrt(1-((x*x)/(a*a)));
-      if(x == 0){
-        return(this.height);
-      } else {
-      return(yP*pos);
-    }
-    }
   } 
 }

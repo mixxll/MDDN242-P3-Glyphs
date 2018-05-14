@@ -2,10 +2,13 @@
 
 ### Color Glyphs
 
-Concept Two - Wave
+Concept Three - Radial with Angle Lines
 
-The above code shows the start of my second concept, this proved to be quite the challenge to code, however I have managed to get it to a decent start, despite the few changes that need to be made, such as how the two waves do not connect to form the one wave for the glyph. Also the hue map needs to be altered so that the colder hues have a smaller wave height, and the warmer colours have a taller wave.
+The last of my concepts can be seen above, this concept was relatively easy to code, as it is just a slight variation on my first design, the hardest part was getting the lines to be tangential to the arc, but once that was solved the code was more or less finished.
 
-Other than those two changes I am very happy with how this concept turned out for the most part, now its just a matter of fixing the errors and developing from there.
+The added addition of the tangential lines adds to the flow when in gradient mode, making each glyph appear like a clock face which I quite like.
+
+Once again, similar to the first concept the glyph jumps when transitioning back to 0 from 360, this will need to be looked into.
+
 
 
