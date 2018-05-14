@@ -4,6 +4,6 @@
 
 Further Development - Concept Two
 
-I have fixed the issues I had with the data not mapping in the clearest way, with the hue now determining a rotational value, this might be changed later as I am looking into trying to map it more efficiently.
+I am now exploring different aesthetics for the glyphs, I have added a circle which outstroke matches that off the waves stroke fill, this helps frame each glyph whilst still allowing the flow from wave to wave I want to coem across.
 
-From here I plan to explore aesthetic choices that aid in the communication of colour through the glyphs.
+I have also added an outer circle, which is completely white to trim away any of the wave that sticks out. So each glyph now stays within the guide perfectly.

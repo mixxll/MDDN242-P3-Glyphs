@@ -1,6 +1,6 @@
 /* change default application behavior */
-var defaultMode = "random";
-var defaultSize = 64;
+var defaultMode = "gradient";
+var defaultSize = 32;
 var defaultDisplay = "glyph"
 var defaultEmoji = 100;
 var backgroundColor = "hsb(0, 0%, 100%)";
@@ -33,8 +33,10 @@ function Glyph() {
     let ligValue = values[2];
     let pointNum = 2*(round(map(satValue,0,100,1,13)));
     //console.log(this.satValue);
-    let strokeW = map(ligValue,0,100,size/100,size/15);
+    let strokeFill = map(ligValue,0,100,0,90);
     let tightness = map(ligValue,0,100,-2,0.8);
+
+    let strokeW = size/30;
 
     var bounding = new WaveBoundingSphere(ligValue,size);
 
@@ -44,12 +46,14 @@ function Glyph() {
 
     push();
 
-    noStroke();
-    fillUniform(90);
+    //noStroke();
+    strokeWeight(1);
+    strokeUniform(strokeFill);
+    fillUniform(98);
 
-    //ellipse(0,0,size,size);
+    ellipse(0,0,size,size);
 
-    strokeUniform(40);
+    strokeUniform(strokeFill);
     noFill();
 
     curveTightness(0.1);
@@ -72,6 +76,14 @@ function Glyph() {
     curveVertex(size/2,0);
     curveVertex(size/2,0);
     endShape();
+
+    var outerStroke = 10
+
+    strokeWeight(outerStroke);
+    strokeUniform(100);
+    noFill();
+
+    ellipse(0,0,size+outerStroke,size+outerStroke);
 
     pop();
   }
