@@ -1,0 +1,36 @@
+{
+  "commits": [
+    {
+      "sha": "a5722cd82496f3e25abec69deb60aa43669b569b",
+      "name": "Final Glyph - Wave"
+    },
+    {
+      "sha": "c1925b52db38d778f19428f8a4a8280e8b340e28",
+      "name": "Development Three"
+    },
+    {
+      "sha": "e56f950d3d1bc192aa43977161cef8e191cb0a1b",
+      "name": "Development Two"
+    },
+    {
+      "sha": "a374c370ef631b477240c98e27c8ad78a331c9bc",
+      "name": "Development One"
+    },
+    {
+      "sha": "ed9b50442b27e8a3339e8c74d8b0a7ba14254d71",
+      "name": "Chosen Concept - Wave"
+    },
+    {
+      "sha": "6ceac08efce31e2ede5dabf45853abb37c9884fc",
+      "name": "Sketch Three - Arc"
+    },
+    {
+      "sha": "1ff851e5738e2aed213375601e1fec7608c7ad91",
+      "name": "Sketch Two - Wave"
+    },
+    {
+      "sha": "767ae6d643468bb7c28ad6bc67aeab39622808cd",
+      "name": "Sketch One - Ring"
+    }
+  ]
+}
