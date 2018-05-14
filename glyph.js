@@ -1,9 +1,9 @@
 /* change default application behavior */
-var defaultMode = "edit";
+var defaultMode = "image";
 var defaultSize = 32;
 var defaultDisplay = "glyph"
-var defaultEmoji = 100;
-var backgroundColor = "hsb(0, 0%, 100%)";
+var defaultEmoji = 797;
+var backgroundColor = "hsb(0, 0%,  100%)";
 
 function Glyph() {
   /*
