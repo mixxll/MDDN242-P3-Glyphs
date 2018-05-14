@@ -2,11 +2,10 @@
 
 ### Color Glyphs
 
-Concept One - Code
+Concept Two - Wave
 
-I have coded the first of my concepts, that being the radial design. The glyph functions as expected, however upon the transition of going from a hue of 360 back to 0, the glyph jumps back to a dot, with no smooth transition between the two. This will hopefully be changed in further updates.
+The above code shows the start of my second concept, this proved to be quite the challenge to code, however I have managed to get it to a decent start, despite the few changes that need to be made, such as how the two waves do not connect to form the one wave for the glyph. Also the hue map needs to be altered so that the colder hues have a smaller wave height, and the warmer colours have a taller wave.
 
-The glyph functions very well in both the gradient and outlier modes, with the gradient showing a clear flow and the outlier being easily detectable.
-
+Other than those two changes I am very happy with how this concept turned out for the most part, now its just a matter of fixing the errors and developing from there.
 
 
