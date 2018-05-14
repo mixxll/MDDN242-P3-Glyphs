@@ -2,12 +2,8 @@
 
 ### Color Glyphs
 
-Developed Sketch Two
+Further Development - Concept Two
 
-I have fleshed out my code for this design, with the wave now using a simplar code that also allows it to be a single line rather than the two lines that were mirrored beforehand.
+I have fixed the issues I had with the data not mapping in the clearest way, with the hue now determining a rotational value, this might be changed later as I am looking into trying to map it more efficiently.
 
-Upon looking at the code in random and gradient mode, it is clear that the mapping of values isnt as accurate as I had intiially percieved them to be, with a cyan colour appearing as a flat line, when initally black was meant to display like that.
-
-This should be a relativley easy fix, just a matter of switching the different inputs for each map and altering the limits slightly.
-
-
+From here I plan to explore aesthetic choices that aid in the communication of colour through the glyphs.

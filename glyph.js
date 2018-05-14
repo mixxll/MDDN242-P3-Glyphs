@@ -26,6 +26,8 @@ function Glyph() {
    *       - strokeUniform(100); // white
    */ 
   this.draw = function(values, size) {
+    angleMode(DEGREES);
+
     let hueValue = values[0];
     let satValue = values[1];
     let ligValue = values[2];
@@ -34,19 +36,22 @@ function Glyph() {
     let strokeW = map(ligValue,0,100,size/100,size/15);
     let tightness = map(ligValue,0,100,-2,0.8);
 
-    var bounding = new WaveBoundingSphere(hueValue,size);
+    var bounding = new WaveBoundingSphere(ligValue,size);
 
     translate(size/2,size/2);
 
-    noFill();
+    rotate(hueValue);
 
-    strokeWeight(1);
-    stroke(0);
-    console.log(10);
+    push();
+
+    noStroke();
+    fillUniform(90);
+
     //ellipse(0,0,size,size);
 
-    stroke(0);
-    curveTightness(tightness);
+    strokeUniform(40);
+    noFill();
+
     curveTightness(0.1);
     strokeWeight(strokeW);
 
@@ -67,12 +72,14 @@ function Glyph() {
     curveVertex(size/2,0);
     curveVertex(size/2,0);
     endShape();
+
+    pop();
   }
 
-function WaveBoundingSphere(h,size) {
-  this.height = map(h,0,360,-size,size);
+  function WaveBoundingSphere(h,size) {
+    this.height = map(h,0,100,0,size);
 
-  this.returnY = function(x,pos,strokeW) {
+    this.returnY = function(x,pos,strokeW) {
     var a = size/2;
     var b = this.height/2;
     var xPos = x;
@@ -80,10 +87,28 @@ function WaveBoundingSphere(h,size) {
     return((yP)*pos);
   
     //return((yP - strokeW)*pos);
+    }
+
+    this.returnMax = function(pos) {
+      return(this.height/2*pos);
+    }
   }
 
-  this.returnMax = function(pos) {
-    return(this.height/2*pos);
+  function Wave(h,size) {
+    this.height = map(h,0,100,0,size);
+
+    this.returnY = function(x,pos,strokeW) {
+    var a = size/2;
+    var b = this.height/2;
+    var xPos = x;
+    var yP = b*sqrt(1-((x*x)/(a*a)));
+    return((yP)*pos);
+  
+    //return((yP - strokeW)*pos);
+    }
+
+    this.returnMax = function(pos) {
+      return(this.height/2*pos);
+    }
   }
-}
 }
