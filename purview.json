@@ -1,7 +1,7 @@
 {
   "commits": [
     {
-      "sha": "a5722cd82496f3e25abec69deb60aa43669b569b",
+      "sha": "0a1992d79a9c8740a43433d6c83ce49ecddbb4e1",
       "name": "Final Glyph - Wave"
     },
     {
@@ -21,15 +21,15 @@
       "name": "Chosen Concept - Wave"
     },
     {
-      "sha": "6ceac08efce31e2ede5dabf45853abb37c9884fc",
+      "sha": "0f33606da795038e07edd15ba7f0180907453ed2",
       "name": "Sketch Three - Arc"
     },
     {
-      "sha": "1ff851e5738e2aed213375601e1fec7608c7ad91",
+      "sha": "6b5d9b84608c801104fb7e5a57bd707a2e8746ff",
       "name": "Sketch Two - Wave"
     },
     {
-      "sha": "767ae6d643468bb7c28ad6bc67aeab39622808cd",
+      "sha": "0f33606da795038e07edd15ba7f0180907453ed2",
       "name": "Sketch One - Ring"
     }
   ]
